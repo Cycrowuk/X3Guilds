@@ -340,7 +340,7 @@
 				  <set_value name="RSM_HSAP_ACTIVATION" exact="1"/>
 			  </do_when>
 
-				  <do_when value="{player.gamestart}" exact="10005" comment="Aldran Adventurer">
+				  <do_when value="{player.gamestart}" exact="10005" comment="Aldrin Adventurer">
 		          <set_player_race race="{lookup.race@terran}"/>
 					  <reward_player>
 						  <money min="4000" max="4150" notransaction="1"/>

@@ -157,7 +157,7 @@
                     <set_value name="OBS.M1 Support Points" exact="{value@Constant {lookup.class@m1} Support Points}"/>
                   </do_if>
 
-                  <!--Chooses the class based on the the TempPointPool value. Some randomization is included.-->
+                  <!--Chooses the class based on the the TempPointPool value. Some randomisation is included.-->
                   <do_choose>
                     <do_when value="{value@OBS.TempPointPool}" min="{value@Constant {lookup.class@m1} Points}+{value@OBS.M1 Support Points}" comment="M1 or M2">
                       <do_any>

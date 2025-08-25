@@ -9,7 +9,7 @@
   <cues>
     <cue name="L2M101" library="1" check="cancel">
       <documentation>
-        <content name="L2M101" reference="Generic Assasination 1" type="L2"/>
+        <content name="L2M101" reference="Generic Assassination 1" type="L2"/>
         <version number="0.7" date="25/08/08" status="release"/>
         <params>
           <param name="WarMission" type="boolean" description="Is this a war mission?"/>

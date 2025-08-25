@@ -62,7 +62,7 @@
  <t id="12003">16x</t>
  <t id="20000">Display(or Screen or Monitor)</t>
  <t id="20001">Borderless</t>
- <t id="20002">Vertical Sync(hronization)</t>
+ <t id="20002">Vertical Sync(hronisation)</t>
 </page>
 
 <page id="1913" title="Capture Folder dialog" descr="" voice="no">
@@ -221,7 +221,7 @@
 <page id="391910" title="About Dialogue" descr="First dialogue before start of game - About" voice="no">
  <t id="1">Start X3:FL</t>
  <t id="106">X3: Farnham's Legacy</t>
- <t id="1216">X3: Farnham's Legacy \(unoffical patch\)\nVersion 1.3.19, 2025\nGuilds V0.82\nCopyright EGOSOFT 2021 all rights reserved.</t>
+ <t id="1216">X3: Farnham's Legacy \(unofficial patch\)\nVersion 1.3.19, 2025\nGuilds V0.82\nCopyright EGOSOFT 2021 all rights reserved.</t>
  <t id="10001">1.3</t>
 </page>
 </language>

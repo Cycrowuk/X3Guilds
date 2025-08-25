@@ -4,7 +4,7 @@ Version:	V1.00
 Author:	Cycrow
 Created:	04/06/2023
 Game:		X3: Farnham Legacy
-Mod:		Unoffical Patch >= 1.3.6
+Mod:		Unofficial Patch >= 1.3.6
 Languages:  English, German, Russian
 ===================================================
 
@@ -15,7 +15,7 @@ This adds all the old plots from TC and AP available in FL, including a number o
 
 Requirements:
 
-Required to install the Unoffical Patch 1.3.6 or greater
+Required to install the Unofficial Patch 1.3.6 or greater
 
 
 Optional Install: You can copy the movie files from TC and AP to get the intros with their game starts and bridge missions.
@@ -28,7 +28,7 @@ addon/mov/00810.dat to addon2/mov/00891.dat
 Info:
 
 Plots Available:
-Farnham's Legacy - Tc Bridge Mission (NEW)
+Farnham's Legacy - TC Bridge Mission (NEW)
 Terran Conflict - Terran Plot
 Terran Conflict - Hub Plot
 Terran Conflict - HQ Plot
@@ -50,7 +50,7 @@ Terran Conflict - Terran Defender
 Terran Conflict - USC Commander
 Terran Conflict - Argon Patriot
 Terran Conflict - Nostalgic Argon
-Terran Conflict - Aldran Adventurer
+Terran Conflict - Aldrin Adventurer
 Albion Prelude - Argon Peacekeeper
 Albion Prelude - Terran Commander
 Albion Prelude - Tormented Teladi
@@ -105,7 +105,7 @@ AP - Bridge Mission (Available after Aldrin Missions)
 AP - AP Plot (Available after AP bridge mission)
 AP - Shady Business (Available after AP bridge mission)
 AP - Corporations (Available after AP bridge mission)
-NOTE: Terran Defender, USC Command and Aldran Adventurer will get the Terran AP Plot instead of the Argon one
+NOTE: Terran Defender, USC Command and Aldrin Adventurer will get the Terran AP Plot instead of the Argon one
 
 Albion Prelude Starts
 FL - Terran Plot
@@ -126,7 +126,7 @@ There are 2 bridging missions which will transition the universe. These missions
 
 Change Log:
 v1.00
-Removed destoryed gate Ocean of Fantasy Beta
+Removed destroyed gate Ocean of Fantasy Beta
 Adjusted sector name for Enduring Light during Final Fury
 
 v0.80
@@ -142,7 +142,7 @@ Added Plot - Balance of Power
 Added AP Game Start - Tormented Teladi
 Added AP Game Start - Poisoned Paranid
 Added Corporation Missions - Plutarch
-Added Corporation Missions - Jonfreco
+Added Corporation Missions - Jonferco
 Added addition unknown terran sectors (Balance of Power Plot)
 Improved autopilot docking at Earth Torus
 

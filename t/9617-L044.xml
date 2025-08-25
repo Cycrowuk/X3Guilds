@@ -38,7 +38,7 @@
  <t id="10002">This task will adjust the relations of all ships/stations in the area to remove as a foe.  Requires friendly notoriety with the owner race</t>
  <t id="10003">Diplomatic Immunity</t>
  <t id="10004">Send an agent to gain diplomatic immunity from notoriety changes</t>
- <t id="10005">This task will prevent dynamic notoriety changes from effecting the targeted race</t>
+ <t id="10005">This task will prevent dynamic notoriety changes from affecting the targeted race</t>
  <t id="10006">Trade Contract</t>
  <t id="10007">Send an agent to negotiate a trade with a factory</t>
  <t id="10008">This task will negotiate a trade with a factory for a certain number of wares.  These wares will be delivered to your Headquarters automatically as they produce until the contract is met.\nThe larger the contract the cheaper each unit will cost.</t>

@@ -5646,7 +5646,7 @@
                                 <create_ship name="L2M023.A5 Testbed" typename="SS_SH_S_M6_SPECIAL" race="player" sellable="0" dockobject="L2M023.Family Pride SY">
                                   <equipment loadout="none">
                                     <ware typename="SS_WARE_TECH213" exact="20"   comment="engine tuning"/>
-                                    <ware typename="SS_WARE_TECH246" exact="20"   comment="rudder optimization"/>
+                                    <ware typename="SS_WARE_TECH246" exact="20"   comment="rudder optimisation"/>
                                     <ware typename="SS_WARE_TECH251" exact="750"  comment="cargo bay extension"/>
                                     <ware typename="SS_WARE_TECH231" exact="1"    comment="SETA"/>
                                     <ware typename="SS_WARE_BOOST"   exact="1"    comment="Boost Extension"/>
@@ -5913,7 +5913,7 @@
                                                           <!--Remove Currently Installed Equipment-->
                                                           <add_equipment object="L2M023.A5 Testbed">
                                                             <ware typename="SS_WARE_TECH213"  exact="-20"  comment="engine tuning"/>
-                                                            <ware typename="SS_WARE_TECH246"  exact="-20"  comment="rudder optimization"/>
+                                                            <ware typename="SS_WARE_TECH246"  exact="-20"  comment="rudder optimisation"/>
                                                             <ware typename="SS_WARE_WARPING"  exact="-1"/>
                                                             <ware typename="SS_WARE_SCANNER2" exact="-1"/>
                                                             <ware typename="SS_WARE_SCANNER3" exact="-1"/>
@@ -6170,7 +6170,7 @@
                                                                                                           <add_equipment object="L2M023.A5 Testbed">
                                                                                                             <!-- BW: Less tuning here; more in crates. -->
                                                                                                             <ware typename="SS_WARE_TECH213"  exact="5"      comment="engine tuning"/>
-                                                                                                            <!--<ware typename="SS_WARE_TECH246"  exact="10"      comment="rudder optimization"/>-->
+                                                                                                            <!--<ware typename="SS_WARE_TECH246"  exact="10"      comment="rudder optimisation"/>-->
                                                                                                             <!-- BW: Make the player find all of his guns and shields. 
                                                                                                             <ware typename="SS_SHIELD_D"      exact="1"       comment="200MJ Shield"/>
                                                                                                             <ware typename="SS_LASER_ESR"     min="1" max="3" comment="ISR"/>
