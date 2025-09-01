@@ -4,7 +4,7 @@
 <name>plugin.planets.info</name>
 <version>3</version>
 <engineversion>73</engineversion>
-<description>Planets Encomony: Info menu</description>
+<description>Planets Economy: Info menu</description>
 <arguments>
 <argument index="1" name="a.obj" type="Var/Station" desc="Trade Dock" />
 <argument index="2" name="a.event" type="Value" desc="Event" />
@@ -74,7 +74,7 @@
 @ $prosperity.rate = [THIS] -> call script plugin.planets.utils :  type='getRate'  Value1=$prosperity  Value 2=null
   $menu = create custom menu array
   
-  $is.consumtion = [FALSE]
+  $is.consumption = [FALSE]
   $is.raw = [TRUE]
   $read.text = read text: page=$page.id id=2
   $tProducts = $sector.data['raw.production']
@@ -86,8 +86,8 @@
   gosub sub.DisplayProduction
   
   $read.text = read text: page=$page.id id=11
-  $is.consumtion = [TRUE]
-  $tProducts = $sector.data['consumtion']
+  $is.consumption = [TRUE]
+  $tProducts = $sector.data['consumption']
   gosub sub.DisplayProduction
   
   $read.text = read text: page=$page.id id=14
@@ -206,7 +206,7 @@
         $tProductions = $planets.prod[$ware]
       end
       
-  * Crate the side menu to display additionoal information
+  * Create the side menu to display additional information
       $side.menu = create custom menu array
       
       $read.text = read text: page=[Page.Menus] id=1104408
@@ -329,7 +329,7 @@
           
           $text = create custom menu string progress: width=160 progress=$percent%
         else
-          if $is.consumtion
+          if $is.consumption
             $value = $tProductions['count']
             $obj.amt = $a.obj -> get amount of ware $ware in cargo bay
             if $value > $obj.amt
@@ -432,7 +432,7 @@
 <line interruptable="@" indent=""><var>$prosperity.rate&#160;=&#160;</var><var>[THIS]&#160;-&gt;</var><text>&#160;call&#160;script&#160;</text><call>plugin.planets.utils</call><text>&#160;:&#160;</text><text>&#160;type=</text><var>'getRate'</var><text>&#160;</text><text>&#160;Value1=</text><var>$prosperity</var><text>&#160;</text><text>&#160;Value&#160;2=</text><var>null</var></line>
 <line indent=""><var>$menu&#160;=&#160;</var><text>create&#160;custom&#160;menu&#160;array</text></line>
 <line indent=""></line>
-<line indent=""><var>$is.consumtion&#160;=&#160;</var><var>[FALSE]</var></line>
+<line indent=""><var>$is.consumption&#160;=&#160;</var><var>[FALSE]</var></line>
 <line indent=""><var>$is.raw&#160;=&#160;</var><var>[TRUE]</var></line>
 <line indent=""><var>$read.text&#160;=&#160;</var><text>read&#160;text:&#160;page=</text><var>$page.id</var><text>&#160;id=</text><var>2</var></line>
 <line indent=""><var>$tProducts&#160;=&#160;</var><var>$sector.data</var><text>[</text><var>'raw.production'</var><text>]</text></line>
@@ -444,8 +444,8 @@
 <line indent=""><text>gosub&#160;</text><var>sub.DisplayProduction</var></line>
 <line indent=""></line>
 <line indent=""><var>$read.text&#160;=&#160;</var><text>read&#160;text:&#160;page=</text><var>$page.id</var><text>&#160;id=</text><var>11</var></line>
-<line indent=""><var>$is.consumtion&#160;=&#160;</var><var>[TRUE]</var></line>
-<line indent=""><var>$tProducts&#160;=&#160;</var><var>$sector.data</var><text>[</text><var>'consumtion'</var><text>]</text></line>
+<line indent=""><var>$is.consumption&#160;=&#160;</var><var>[TRUE]</var></line>
+<line indent=""><var>$tProducts&#160;=&#160;</var><var>$sector.data</var><text>[</text><var>'consumption'</var><text>]</text></line>
 <line indent=""><text>gosub&#160;</text><var>sub.DisplayProduction</var></line>
 <line indent=""></line>
 <line indent=""><var>$read.text&#160;=&#160;</var><text>read&#160;text:&#160;page=</text><var>$page.id</var><text>&#160;id=</text><var>14</var></line>
@@ -564,7 +564,7 @@
 <line indent="&#160;&#160;&#160;"><var>$tProductions&#160;=&#160;</var><var>$planets.prod</var><text>[</text><var>$ware</var><text>]</text></line>
 <line indent="&#160;&#160;"><text>end</text></line>
 <line indent="&#160;&#160;"></line>
-<line indent=""><comment><text>*&#160;</text><var>Crate&#160;the&#160;side&#160;menu&#160;to&#160;display&#160;additionoal&#160;information</var></comment></line>
+<line indent=""><comment><text>*&#160;</text><var>Create&#160;the&#160;side&#160;menu&#160;to&#160;display&#160;additional&#160;information</var></comment></line>
 <line indent="&#160;&#160;"><var>$side.menu&#160;=&#160;</var><text>create&#160;custom&#160;menu&#160;array</text></line>
 <line indent="&#160;&#160;"></line>
 <line indent="&#160;&#160;"><var>$read.text&#160;=&#160;</var><text>read&#160;text:&#160;page=</text><var>[Page.Menus]</var><text>&#160;id=</text><var>1104408</var></line>
@@ -687,7 +687,7 @@
 <line indent="&#160;&#160;&#160;&#160;"></line>
 <line indent="&#160;&#160;&#160;&#160;"><var>$text&#160;=&#160;</var><text>create&#160;custom&#160;menu&#160;string&#160;progress:&#160;width=</text><var>160</var><text>&#160;progress=</text><var>$percent</var><text>%</text></line>
 <line indent="&#160;&#160;&#160;"><text>else</text></line>
-<line indent="&#160;&#160;&#160;&#160;"><var>if&#160;</var><var>$is.consumtion</var></line>
+<line indent="&#160;&#160;&#160;&#160;"><var>if&#160;</var><var>$is.consumption</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$value&#160;=&#160;</var><var>$tProductions</var><text>[</text><var>'count'</var><text>]</text></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$obj.amt&#160;=&#160;</var><var>$a.obj&#160;-&gt;</var><text>&#160;get&#160;amount&#160;of&#160;ware&#160;</text><var>$ware</var><text>&#160;in&#160;cargo&#160;bay</text></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>if&#160;</var><var>$value</var><text>&#160;</text><var>&gt;</var><text>&#160;</text><var>$obj.amt</var></line>
@@ -731,7 +731,7 @@
 <sval type="array" size="10">
   <sval type="string" val="plugin.planets.info"/>
   <sval type="int" val="73"/>
-  <sval type="string" val="Planets Encomony: Info menu"/>
+  <sval type="string" val="Planets Economy: Info menu"/>
   <sval type="int" val="3"/>
   <sval type="int" val="0"/>
   <sval type="array" size="48">
@@ -755,7 +755,7 @@
     <sval type="string" val="prosperity"/>
     <sval type="string" val="prosperity.max"/>
     <sval type="string" val="prosperity.rate"/>
-    <sval type="string" val="is.consumtion"/>
+    <sval type="string" val="is.consumption"/>
     <sval type="string" val="is.raw"/>
     <sval type="string" val="read.text"/>
     <sval type="string" val="tProducts"/>
@@ -1273,7 +1273,7 @@
       <sval type="int" val="131074"/>
       <sval type="int" val="7"/>
       <sval type="int" val="5"/>
-      <sval type="string" val="consumtion"/>
+      <sval type="string" val="consumption"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="1167"/>
@@ -3429,7 +3429,7 @@
     <sval type="array" size="3">
       <sval type="int" val="152"/>
       <sval type="int" val="1"/>
-      <sval type="string" val="Crate the side menu to display additionoal information"/>
+      <sval type="string" val="Create the side menu to display additional information"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="153"/>

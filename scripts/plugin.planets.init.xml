@@ -4,7 +4,7 @@
 <name>plugin.planets.init</name>
 <version>1</version>
 <engineversion>64</engineversion>
-<description>Planetary Economy: Initilise production</description>
+<description>Planetary Economy: Initialise production</description>
 <arguments>
 </arguments>
 <sourceplaintext>
@@ -111,8 +111,8 @@
             $tSector['production'] = $tProducts
             $tRawProducts = table alloc
             $tSector['raw.production'] = $tRawProducts
-            $tConsumtion = table alloc
-            $tSector['consumtion'] = $tConsumtion
+            $tConsumption = table alloc
+            $tSector['consumption'] = $tConsumption
             
             $enabled = $split[2]
             $enabled = string $enabled to integer
@@ -139,7 +139,7 @@
             $value = string $value to integer
             $tSector['max.prosperity'] = $value
             
-            $arr = create new array, arguments='production', 'consumtion', 'raw.production', null, null
+            $arr = create new array, arguments='production', 'consumption', 'raw.production', null, null
             $arr.size = size of array $arr
             
             $pos = 6
@@ -299,8 +299,8 @@
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tSector</var><text>[</text><var>'production'</var><text>]&#160;=&#160;</text><var>$tProducts</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tRawProducts&#160;=&#160;</var><text>table&#160;alloc</text></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tSector</var><text>[</text><var>'raw.production'</var><text>]&#160;=&#160;</text><var>$tRawProducts</var></line>
-<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tConsumtion&#160;=&#160;</var><text>table&#160;alloc</text></line>
-<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tSector</var><text>[</text><var>'consumtion'</var><text>]&#160;=&#160;</text><var>$tConsumtion</var></line>
+<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tConsumption&#160;=&#160;</var><text>table&#160;alloc</text></line>
+<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tSector</var><text>[</text><var>'consumption'</var><text>]&#160;=&#160;</text><var>$tConsumption</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$enabled&#160;=&#160;</var><var>$split</var><text>[</text><var>2</var><text>]</text></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$enabled&#160;=&#160;</var><text>string&#160;</text><var>$enabled</var><text>&#160;to&#160;integer</text></line>
@@ -327,7 +327,7 @@
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$value&#160;=&#160;</var><text>string&#160;</text><var>$value</var><text>&#160;to&#160;integer</text></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$tSector</var><text>[</text><var>'max.prosperity'</var><text>]&#160;=&#160;</text><var>$value</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"></line>
-<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$arr&#160;=&#160;</var><text>create&#160;new&#160;array,&#160;arguments=</text><var>'production'</var><text>,&#160;</text><var>'consumtion'</var><text>,&#160;</text><var>'raw.production'</var><text>,&#160;</text><var>null</var><text>,&#160;</text><var>null</var></line>
+<line indent="&#160;&#160;&#160;&#160;&#160;"><var>$arr&#160;=&#160;</var><text>create&#160;new&#160;array,&#160;arguments=</text><var>'production'</var><text>,&#160;</text><var>'consumption'</var><text>,&#160;</text><var>'raw.production'</var><text>,&#160;</text><var>null</var><text>,&#160;</text><var>null</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$arr.size&#160;=&#160;</var><text>size&#160;of&#160;array&#160;</text><var>$arr</var></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"></line>
 <line indent="&#160;&#160;&#160;&#160;&#160;"><var>$pos&#160;=&#160;</var><var>6</var></line>
@@ -388,7 +388,7 @@
 <sval type="array" size="10">
   <sval type="string" val="plugin.planets.init"/>
   <sval type="int" val="64"/>
-  <sval type="string" val="Planetary Economy: Initilise production"/>
+  <sval type="string" val="Planetary Economy: Initialise production"/>
   <sval type="int" val="1"/>
   <sval type="int" val="0"/>
   <sval type="array" size="42">
@@ -420,7 +420,7 @@
     <sval type="string" val="tSector"/>
     <sval type="string" val="tProducts"/>
     <sval type="string" val="tRawProducts"/>
-    <sval type="string" val="tConsumtion"/>
+    <sval type="string" val="tConsumption"/>
     <sval type="string" val="enabled"/>
     <sval type="string" val="include.pop"/>
     <sval type="string" val="value"/>
@@ -1117,7 +1117,7 @@
       <sval type="int" val="131074"/>
       <sval type="int" val="25"/>
       <sval type="int" val="5"/>
-      <sval type="string" val="consumtion"/>
+      <sval type="string" val="consumption"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="28"/>
     </sval>
@@ -1283,7 +1283,7 @@
       <sval type="int" val="5"/>
       <sval type="string" val="production"/>
       <sval type="int" val="5"/>
-      <sval type="string" val="consumtion"/>
+      <sval type="string" val="consumption"/>
       <sval type="int" val="5"/>
       <sval type="string" val="raw.production"/>
       <sval type="int" val="0"/>

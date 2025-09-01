@@ -85,7 +85,7 @@
   
   * Consume luxury goods
   $active.wares = table alloc
-  $tProduct = $a.data['consumtion']
+  $tProduct = $a.data['consumption']
   if $tProduct
     $key = get next key: table=$tProduct key=null
     while $key
@@ -169,7 +169,7 @@
       $prod.prosperity = 0
     if $prosperity >= $prod.prosperity
       $active.wares[$key] = [TRUE]
-@     = [THIS] -> call script plugin.planets.produce :  Product=$key  Data=$table  Production Rate=$rate  Trade Dock=$trade.dock  Production Data=$table.production  Is Consumtion?=$is.consume  Is Raw?=$is.raw
+@     = [THIS] -> call script plugin.planets.produce :  Product=$key  Data=$table  Production Rate=$rate  Trade Dock=$trade.dock  Production Data=$table.production  Is Consumption?=$is.consume  Is Raw?=$is.raw
     end
   end
   endsub
@@ -250,7 +250,7 @@
 <line indent=""></line>
 <line indent=""><comment><text>*&#160;</text><var>Consume&#160;luxury&#160;goods</var></comment></line>
 <line indent=""><var>$active.wares&#160;=&#160;</var><text>table&#160;alloc</text></line>
-<line indent=""><var>$tProduct&#160;=&#160;</var><var>$a.data</var><text>[</text><var>'consumtion'</var><text>]</text></line>
+<line indent=""><var>$tProduct&#160;=&#160;</var><var>$a.data</var><text>[</text><var>'consumption'</var><text>]</text></line>
 <line indent=""><var>if&#160;</var><var>$tProduct</var></line>
 <line indent="&#160;"><var>$key&#160;=&#160;</var><text>get&#160;next&#160;key:&#160;table=</text><var>$tProduct</var><text>&#160;key=</text><var>null</var></line>
 <line indent="&#160;"><var>while&#160;</var><var>$key</var></line>
@@ -334,7 +334,7 @@
 <line indent="&#160;&#160;"><var>$prod.prosperity&#160;=&#160;</var><var>0</var></line>
 <line indent="&#160;"><var>if&#160;</var><var>$prosperity</var><text>&#160;</text><var>&gt;=</var><text>&#160;</text><var>$prod.prosperity</var></line>
 <line indent="&#160;&#160;"><var>$active.wares</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>[TRUE]</var></line>
-<line interruptable="@" indent="&#160;&#160;"><var>=&#160;</var><var>[THIS]&#160;-&gt;</var><text>&#160;call&#160;script&#160;</text><call>plugin.planets.produce</call><text>&#160;:&#160;</text><text>&#160;Product=</text><var>$key</var><text>&#160;</text><text>&#160;Data=</text><var>$table</var><text>&#160;</text><text>&#160;Production&#160;Rate=</text><var>$rate</var><text>&#160;</text><text>&#160;Trade&#160;Dock=</text><var>$trade.dock</var><text>&#160;</text><text>&#160;Production&#160;Data=</text><var>$table.production</var><text>&#160;</text><text>&#160;Is&#160;Consumtion?=</text><var>$is.consume</var><text>&#160;</text><text>&#160;Is&#160;Raw?=</text><var>$is.raw</var></line>
+<line interruptable="@" indent="&#160;&#160;"><var>=&#160;</var><var>[THIS]&#160;-&gt;</var><text>&#160;call&#160;script&#160;</text><call>plugin.planets.produce</call><text>&#160;:&#160;</text><text>&#160;Product=</text><var>$key</var><text>&#160;</text><text>&#160;Data=</text><var>$table</var><text>&#160;</text><text>&#160;Production&#160;Rate=</text><var>$rate</var><text>&#160;</text><text>&#160;Trade&#160;Dock=</text><var>$trade.dock</var><text>&#160;</text><text>&#160;Production&#160;Data=</text><var>$table.production</var><text>&#160;</text><text>&#160;Is&#160;Consumption?=</text><var>$is.consume</var><text>&#160;</text><text>&#160;Is&#160;Raw?=</text><var>$is.raw</var></line>
 <line indent="&#160;"><text>end</text></line>
 <line indent=""><text>end</text></line>
 <line indent=""><text>endsub</text></line>
@@ -869,7 +869,7 @@
       <sval type="int" val="131074"/>
       <sval type="int" val="1"/>
       <sval type="int" val="5"/>
-      <sval type="string" val="consumtion"/>
+      <sval type="string" val="consumption"/>
     </sval>
     <sval type="array" size="7">
       <sval type="int" val="104"/>
