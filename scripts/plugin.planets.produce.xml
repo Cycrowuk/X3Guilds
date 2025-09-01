@@ -11,7 +11,7 @@
 <argument index="3" name="a.rate" type="Var/Number" desc="Production Rate" />
 <argument index="4" name="a.dock" type="Var/Station" desc="Trade Dock" />
 <argument index="5" name="a.production" type="Value" desc="Production Data" />
-<argument index="6" name="a.consumtion" type="Var/Boolean" desc="Is Consumtion?" />
+<argument index="6" name="a.consumption" type="Var/Boolean" desc="Is Consumption?" />
 <argument index="7" name="a.raw" type="Var/Boolean" desc="Is Raw?" />
 </arguments>
 <sourceplaintext>
@@ -51,7 +51,7 @@
     $remaining.time = $production.time - ( $current.time - $start.time )
     if ( $start.time + $production.time ) <= $current.time
       
-      if $a.consumtion
+      if $a.consumption
         $a.production['last.consume'] = $current.time
       else
         $production.count = $a.production['count']
@@ -77,14 +77,14 @@
     
   * not started yet, start production
   else
-  * cant start if there is not enough resouces
+  * cant start if there is not enough resources
     if $a.dock -> exists
       $production.time = $a.production['time']
       skip if $production.time
         $production.time = $a.data['time']
       $production.time = fixed multiply and divide: $production.time * 100 / $a.rate
       
-      if $a.consumtion
+      if $a.consumption
         $production.count = $a.production['count']
         skip if $production.count
           $production.count = $a.data['count']
@@ -189,7 +189,7 @@
 <line indent="&#160;"><var>$remaining.time&#160;=&#160;</var><var>$production.time</var><text>&#160;</text><var>-</var><text>&#160;</text><var>(</var><text>&#160;</text><var>$current.time</var><text>&#160;</text><var>-</var><text>&#160;</text><var>$start.time</var><text>&#160;</text><var>)</var></line>
 <line indent="&#160;"><var>if&#160;</var><var>(</var><text>&#160;</text><var>$start.time</var><text>&#160;</text><var>+</var><text>&#160;</text><var>$production.time</var><text>&#160;</text><var>)</var><text>&#160;</text><var>&lt;=</var><text>&#160;</text><var>$current.time</var></line>
 <line indent="&#160;&#160;"></line>
-<line indent="&#160;&#160;"><var>if&#160;</var><var>$a.consumtion</var></line>
+<line indent="&#160;&#160;"><var>if&#160;</var><var>$a.consumption</var></line>
 <line indent="&#160;&#160;&#160;"><var>$a.production</var><text>[</text><var>'last.consume'</var><text>]&#160;=&#160;</text><var>$current.time</var></line>
 <line indent="&#160;&#160;"><text>else</text></line>
 <line indent="&#160;&#160;&#160;"><var>$production.count&#160;=&#160;</var><var>$a.production</var><text>[</text><var>'count'</var><text>]</text></line>
@@ -215,14 +215,14 @@
 <line indent="&#160;"></line>
 <line indent=""><comment><text>*&#160;</text><var>not&#160;started&#160;yet,&#160;start&#160;production</var></comment></line>
 <line indent=""><text>else</text></line>
-<line indent=""><comment><text>*&#160;</text><var>cant&#160;start&#160;if&#160;there&#160;is&#160;not&#160;enough&#160;resouces</var></comment></line>
+<line indent=""><comment><text>*&#160;</text><var>cant&#160;start&#160;if&#160;there&#160;is&#160;not&#160;enough&#160;resources</var></comment></line>
 <line indent="&#160;"><var>if&#160;</var><var>$a.dock&#160;-&gt;</var><text>&#160;exists</text></line>
 <line indent="&#160;&#160;"><var>$production.time&#160;=&#160;</var><var>$a.production</var><text>[</text><var>'time'</var><text>]</text></line>
 <line indent="&#160;&#160;"><var>skip&#160;if&#160;</var><var>$production.time</var></line>
 <line indent="&#160;&#160;&#160;"><var>$production.time&#160;=&#160;</var><var>$a.data</var><text>[</text><var>'time'</var><text>]</text></line>
 <line indent="&#160;&#160;"><var>$production.time&#160;=&#160;</var><text>fixed&#160;multiply&#160;and&#160;divide:&#160;</text><var>$production.time</var><text>&#160;*&#160;</text><var>100</var><text>&#160;/&#160;</text><var>$a.rate</var></line>
 <line indent="&#160;&#160;"></line>
-<line indent="&#160;&#160;"><var>if&#160;</var><var>$a.consumtion</var></line>
+<line indent="&#160;&#160;"><var>if&#160;</var><var>$a.consumption</var></line>
 <line indent="&#160;&#160;&#160;"><var>$production.count&#160;=&#160;</var><var>$a.production</var><text>[</text><var>'count'</var><text>]</text></line>
 <line indent="&#160;&#160;&#160;"><var>skip&#160;if&#160;</var><var>$production.count</var></line>
 <line indent="&#160;&#160;&#160;&#160;"><var>$production.count&#160;=&#160;</var><var>$a.data</var><text>[</text><var>'count'</var><text>]</text></line>
@@ -304,7 +304,7 @@
     <sval type="string" val="a.rate"/>
     <sval type="string" val="a.dock"/>
     <sval type="string" val="a.production"/>
-    <sval type="string" val="a.consumtion"/>
+    <sval type="string" val="a.consumption"/>
     <sval type="string" val="a.raw"/>
     <sval type="string" val="this.sector"/>
     <sval type="string" val="production.count"/>
@@ -1286,7 +1286,7 @@
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="63"/>
-      <sval type="string" val="Is Consumtion?"/>
+      <sval type="string" val="Is Consumption?"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="63"/>
@@ -1376,7 +1376,7 @@
     <sval type="array" size="3">
       <sval type="int" val="48"/>
       <sval type="int" val="1"/>
-      <sval type="string" val="cant start if there is not enough resouces"/>
+      <sval type="string" val="cant start if there is not enough resources"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="53"/>
