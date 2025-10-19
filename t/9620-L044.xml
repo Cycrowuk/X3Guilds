@@ -831,8 +831,8 @@
  <t id="92354">Developed by the Argon Secret Service, this Spy Satellite is capable of detecting and tracking the movements of targeted ships. It is designed to resemble a standard satellite and utilises advanced cloaking technology to conceal its true purpose.</t>
  <t id="92363">Gate Control Crystal</t>
  <t id="92364">This crystal was developed by the Terrans to channel the immense energy needed for warp gate functionality.\nIt serves as a critical component in stabilising the spatial field during gate activation.\nWithout it, the gate cannot maintain a consistent or safe connection between sectors.\nIts unique properties make it extremely rare and difficult to replicate.</t>
- <t id="92373">Cystalline Matrix</t>
- <t id="92374">The Crystalline Matrix is a rare and highly specialized mineral formation capable of channeling and stabilizing vast quantities of subspace energy. Its unique lattice structure allows for the precise manipulation of quantum resonance patterns, making it an essential component in the construction and operation of jumpgate cores and long-range energy transfer systems.\n\nThe Terran Pioneers once used these crystals during the initial colonization era to construct smaller-scale subspace conduits and prototype gate stabilizers. However, due to the catastrophic loss of supply sources and the inability to artificially reproduce the matrix’s properties, production ceased entirely following their isolation.\n\nModern Terran science recognizes the Crystalline Matrix as irreplaceable,while its energy potential can be modeled, no synthetic substitute has ever successfully replicated its ability to harmonize subspace frequencies.  Recent rediscovery of viable deposits and recovered matrix shards has reignited Terran research efforts, particularly in the restoration of ancient or damaged gate systems. Without these crystals, stable wormhole generation at large scale remains impossible.</t>
+ <t id="92373">Crystalline Matrix</t>
+ <t id="92374">The Crystalline Matrix is a rare and highly specialised mineral formation capable of channelling and stabilising vast quantities of subspace energy. Its unique lattice structure allows for the precise manipulation of quantum resonance patterns, making it an essential component in the construction and operation of jumpgate cores and long-range energy transfer systems.\n\nThe Terran Pioneers once used these crystals during the initial colonisation era to construct smaller-scale subspace conduits and prototype gate stabilisers. However, due to the catastrophic loss of supply sources and the inability to artificially reproduce the matrix’s properties, production ceased entirely following their isolation.\n\nModern Terran science recognises the Crystalline Matrix as irreplaceable,while its energy potential can be modelled, no synthetic substitute has ever successfully replicated its ability to harmonise subspace frequencies.  Recent rediscovery of viable deposits and recovered matrix shards has reignited Terran research efforts, particularly in the restoration of ancient or damaged gate systems. Without these crystals, stable wormhole generation at large scale remains impossible.</t>
 </page>
 
 <page id="390099" description="Player Responses">
@@ -2832,7 +2832,7 @@
  <t id="110014">Commander, it’s good to see you again. I hope the quiet has been treating you well, because that’s about to change.</t>
  <t id="110015">You remember the damaged gate in this sector? For years, we’ve considered it beyond repair. The Pioneers simply didn’t have the resources or the means to restore it.</t>
  <t id="110016">After speaking with Earth’s representatives, we believe there may be a solution. The gate’s subspace alignment chamber requires a crystalline matrix, something we’ve been unable to produce since the days of the early colonists.</t>
- <t id="110017">Yes. A very specific type of Terran energy crystal used to channel subspace energy and stabilize wormhole flow. Without it, the gate’s core remains dormant.</t>
+ <t id="110017">Yes. A very specific type of Terran energy crystal used to channel subspace energy and stabilise wormhole flow. Without it, the gate’s core remains dormant.</t>
  <t id="110018">They do, though access to them is… complicated. They’re controlled materials, used only for deep-space gate research and Trans-Orbital Accelerator calibration.</t>
  <t id="110019">The Terran Envoy, Daichi Tsu, believes the United Space Command may be willing to assist if the request comes through you. You’ve proven yourself trustworthy, Commander. We’d like you to be the one to secure the crystals.</t>
  <t id="110020">Excellent. Once we have the crystals, our engineers will begin restoring the gate immediately. If this works… it will be the first time in centuries a Pioneer-built gate reactivates.</t>
@@ -5633,7 +5633,7 @@
  <t id="1100033">The Lost Colonies</t>
  <t id="1100034">Shadows of the Past</t> 
  <t id="1100035">The mysterious ship has been secured, and telemetry analysis points to uncharted space. Earth Command needs your skills to scout distant sectors and investigate possible evidence that suggests the existence of ancient colonists once thought lost to time.</t>
- <t id="1100036">Scientific Consenus</t>  
+ <t id="1100036">Scientific Consensus</t>
  <t id="1100037">Earth assembles a multi-racial scientific team to study the mysterious wreckage. Escort and assist scientists as they uncover clues about a long-forgotten Terran colonisation effort.</t>
  <t id="1100038">Echoes of Isolation</t>
  <t id="1100039">Newly uncovered data from the derelict Terran vessel reveals evidence of ancient colony routes and long-dormant jump gates. With confirmation of Terran presence deep beyond known space, you’re tasked with following the trail. The first goal: track down remnants of Terran technology and discover a way forward.</t>
@@ -5658,7 +5658,7 @@
  <t id="1100058">With first contact established and diplomatic relations cautiously opened, the Pioneers have revealed a dire truth, their colony is on the brink of crisis. Centuries of isolation have left their infrastructure crumbling, and their food and medical supplies dwindling.  You have been tasked with delivering critical supplies to the Orbital Defence Station in Terra Nova to help stabilise the colony and build trust between our peoples.</t>
  <t id="1100059">Hana Rui \(Terran Director\)</t>
  <t id="1100060">Activating</t>
- <t id="2000000">Industritech Explantion</t>
+ <t id="2000000">Industritech Expansion</t>
  <t id="2000001">Hatibmanckuttall \(Industritech Agent\)</t>
  <t id="2000002">Prove yourself to the Industritech Agent</t>
  <t id="2000003">Industritech Assistance Reward</t>
