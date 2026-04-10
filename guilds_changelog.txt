@@ -2,6 +2,7 @@ V0.89
 Improved handling of captured ships in Attack Waypoint mission
 Improvements to Beryll Incursion, Yaki convoy mission.
 Added additional Yaki Assignments for Beryll Incursion
+Fix for config settings with value 0 being flagged as not set on update.
 
 V0.88
 Added Heavy Tern and Heavy Shrike to Teladi Super Shipyard
@@ -10,6 +11,7 @@ Added Attack ships at waypoint mission to Race Military
 Added Guild Tasks to Guild Board
 Added Merceneries Guild Tasks (Attack ships at waypoints)
 Ajusted Race Military missions, now upto 3 missions available at a time
+Improved marine race distribution when generating for ship
 
 V0.87
 Cleanup of Elena's Fortune from WareTemplate bug
