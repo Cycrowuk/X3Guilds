@@ -1695,6 +1695,16 @@
             </cue>
           </cues>
         </cue>
+		  <cue name="L2M019_C3_FixSectors">
+			  <action>
+				  <do_all>
+		              <find_sector name="L2M019.Albion1" x="17" y="10" exact="0"/>
+		              <find_sector name="L2M019.Albion2" x="18" y="11" exact="0"/>
+	    	          <find_sector name="L2M019.Albion3" x="18" y="10" exact="0"/>
+    		          <find_sector name="L2M019.Albion4" x="19" y="10" exact="0"/>
+				  </do_all>
+			  </action>			  
+		  </cue>
         <cue name="L2M019_C3" delay="2s">
           <condition>
             <check_all>

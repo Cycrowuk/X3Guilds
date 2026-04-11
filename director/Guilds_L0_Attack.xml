@@ -360,6 +360,44 @@
 				</action>
 			</cue>
 
+			<cue name="L0GI09_TargetCaptured" instantiate="static">
+				<condition>
+					<check_all>
+						<object_exists object="{param@Cue}.{param@ID} L0GI09_Enemy"/>
+						<object_captured object="{param@Cue}.{param@ID} L0GI09_Enemy"/>
+					</check_all>
+				</condition>
+				<timing>
+					<time exact="1s"/>
+				</timing>
+				<action>
+					<do_all>
+						<remove_object_from_group object="{event.object}" group="{param@Cue}.{param@ID} L0GI09_EnemyShips"/>
+						<do_if value="{group.object.count@{param@Cue}.{param@ID} L0GI09_EnemyShips}" min="1">
+							<reset_cue cue="L0GI09_SetObjective"/>
+						</do_if>
+					</do_all>
+				</action>
+			</cue>
+			<cue name="L0GI09_TargetClaimed" instantiate="static">
+				<condition>
+					<check_all>
+						<object_exists object="{param@Cue}.{param@ID} L0GI09_Enemy"/>
+						<check_value value="{object.race@{param@Cue}.{param@ID} L0GI09_Enemy}" exact="{lookup.race@player}"/>
+					</check_all>
+				</condition>
+				<action>
+					<do_all>
+						<remove_object_from_group object="{event.object}" group="{param@Cue}.{param@ID} L0GI09_EnemyShips"/>
+						<do_if value="{object@{param@Cue}.{param@ID} L0GI09_Enemy}" exact="{event.object}">
+							<do_if value="{group.object.count@{param@Cue}.{param@ID} L0GI09_EnemyShips}" min="1">
+								<reset_cue cue="L0GI09_SetObjective"/>
+							</do_if>
+						</do_if>
+					</do_all>
+				</action>
+			</cue>
+
 			<cue name="L0GI09_LeaderSpeach" delay="1s" instantiate="static">
 				<condition>
 					<check_value value="{value@{param@Cue}.{param@ID} L0GI09_DoSpeech}" min="1"/>

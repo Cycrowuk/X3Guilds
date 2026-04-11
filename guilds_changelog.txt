@@ -1,3 +1,8 @@
+V0.89
+Improved handling of captured ships in Attack Waypoint mission
+Improvements to Beryll Incursion, Yaki convoy mission.
+Added additional Yaki Assignments for Beryll Incursion
+
 V0.88
 Added Heavy Tern and Heavy Shrike to Teladi Super Shipyard
 Added new mission type (Attack ships at waypoints)

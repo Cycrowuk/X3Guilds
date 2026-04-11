@@ -5799,6 +5799,10 @@
 										<do_all>
 											<remove_offer actor="Beryll_Incursion.Patrol_Contact" conversation="L2OfferCombat" discipline="XXXXP"/>
 											<remove_actor actor="Beryll_Incursion.Patrol_Contact"/>
+											<remove_offer actor="Beryll_Incursion.Combat_Contact" conversation="L2OfferCombat" discipline="XXXXP"/>
+											<remove_actor actor="Beryll_Incursion.Combat_Contact"/>
+											<remove_offer actor="Beryll_Incursion.Smuggle_Contact" conversation="L2OfferNormal" discipline="XXXXP"/>
+											<remove_actor actor="Beryll_Incursion.Smuggle_Contact"/>
 										</do_all>
 									</action>
 								</cue>
@@ -5978,6 +5982,241 @@
 																</do_when>
 																<do_otherwise>
 																	<remove_objective cue="Beryll_Incursion_Stage2_3_PatrolMission" status="failed"/>
+																	<reset_cue cue="Beryll_Incursion_Stage2_3_CreateTasks"/>
+																</do_otherwise>
+															</do_choose>
+														</do_all>
+													</action>
+												</cue>
+											</cues>
+										</cue>
+									</cues>
+								</cue>
+
+								<cue name="Beryll_Incursion_Stage2_3_CombatMission" delay="1s">
+									<action>
+										<do_all>
+											<find_sector name="this.sector" race="yaki" sector="Beryll_Incursion.YakiHome" min="0" max="5"/>
+											<find_station name="Beryll_Incursion.Combat_StartStation" race="yaki">
+												<sector sector="this.sector"/>
+												<jumps exact="0"/>
+											</find_station>
+											<do_if value="{object.exists@Beryll_Incursion.Combat_StartStation}" exact="0">
+												<find_station name="Beryll_Incursion.Combat_StartStation" race="yaki">
+													<sector sector="this.sector"/>
+													<jumps min="0" max="5"/>
+												</find_station>
+											</do_if>
+											<create_actor race="yaki" name="Beryll_Incursion.Combat_Contact" object="Beryll_Incursion.Combat_StartStation" location="crew" voiceflags="32"/>
+											<create_offer actor="Beryll_Incursion.Combat_Contact" conversation="L2OfferCombat" discipline="XXXXP" cue="Beryll_Incursion_Stage2_3_CombatMission"/>
+											<remove_value value="Beryll_Incursion.Combat_RewardCr"/>
+											<remove_value value="Beryll_Incursion.Combat_Feedback"/>
+											<remove_value value="Beryll_Incursion.Combat_Bonus"/>
+											<set_value name="Beryll_Incursion_Stage2_3_CombatMission.2 L0GI10_Progress" exact="0"/>
+											<remove_group group="Beryll_Incursion.Combat_Followers"/>
+											<set_sector name="Beryll_Incursion.Combat_Sector" value="{sector@this.sector}" />
+										</do_all>
+									</action>
+									<cues>
+										<cue name="Beryll_Incursion_Stage2_3_Combat_Briefing" delay="1s">
+											<condition>
+												<conversation_completed answer="briefing" conversation="L2OfferCombat" actor="Beryll_Incursion.Combat_Contact"/>
+											</condition>
+											<cues>
+												<cue ref="L0GI10 B">
+													<params>
+														<param name="Cue" value="Beryll_Incursion_Stage2_3_CombatMission" comment="The cue where values will be localized"/>
+														<param name="ID" value="2"/>
+														<param name="Step" value="1"/>
+														<param name="Preview" value="1"/>
+														<param name="SetObjective" value="0"/>
+														<param name="Lv1Guide" value="Beryll_Incursion.Combat_Contact"/>
+														<param name="StartSector" value="{sector@Beryll_Incursion.Combat_Sector}" comment="The Address of the destination. Overrides all other criteria."/>
+														<param name="SectorRange" value="2"/>
+														<param name="SectorRace" value="{lookup.race@yaki}"/>
+														<param name="EnemyRace" value="{lookup.race@pirate}" comment="Race id or mask"/>
+														<param name="OfferRace" value="{lookup.race@yaki}" comment="Name of the offer race"/>
+														<param name="Complete Briefing" value="1" comment="Run the briefing completion library"/>
+														<param name="Difficulty" value="{lookup.level@average}" comment="The value address for the difficulty"/>
+														<param name="RewardCr" value="Beryll_Incursion.Combat_RewardCr" comment="Reward - credits"/>
+														<param name="Bonus" value="Beryll_Incursion.Combat_Bonus"/>
+														<param name="Level" value="15"/>
+														<param name="Waypoints" value="2"/>
+													</params>
+												</cue>
+											</cues>
+										</cue>
+										<cue name="Beryll_Incursion_Stage2_3_Combat_Accept" delay="1s">
+											<condition>
+												<conversation_completed answer="accept" conversation="L2OfferCombat" actor="Beryll_Incursion.Combat_Contact"/>
+											</condition>
+											<action>
+												<do_all>
+													<create_ship group="Beryll_Incursion.Combat_Followers" typename="{lookup.race.shiptype.m3@yaki}" race="{lookup.race@yaki}">
+														<position x="200km" y="400km" z="200km"/>
+														<sector sector="{sector@Beryll_Incursion.Combat_Sector}"/>
+														<equipment loadout="maximum"/>
+														<command command="idle"/>
+													</create_ship>
+													<do_all exact="2">
+														<create_ship group="Beryll_Incursion.Combat_Followers" typename="{lookup.race.shiptype.m4@yaki}" race="{lookup.race@yaki}">
+															<position x="200km" y="400km" z="200km"/>
+															<sector sector="{sector@Beryll_Incursion.Combat_Sector}"/>
+															<equipment loadout="maximum"/>
+															<command command="idle"/>
+														</create_ship>
+													</do_all>
+													<set_value name="Beryll_Incursion.NextTask" exact="1"/>
+												</do_all>
+											</action>
+											<cues>
+												<cue ref="L0GI10">
+													<params>
+														<param name="Cue" value="Beryll_Incursion_Stage2_3_CombatMission" comment="The cue where values will be localized"/>
+														<param name="ID" value="2"/>
+														<param name="Step" value="1"/>
+														<param name="SetObjective" value="1"/>
+														<param name="Lv1Guide" value="Beryll_Incursion.Combat_Contact"/>
+														<param name="LeaderActor" value="Beryll_Incursion.Combat_Contact"/>
+														<param name="StartSector" value="{sector@Beryll_Incursion.Combat_Sector}" comment="The Address of the destination. Overrides all other criteria."/>
+														<param name="SectorRange" value="2"/>
+														<param name="SectorRace" value="{lookup.race@yaki}"/>
+														<param name="EnemyRace" value="{lookup.race@pirate}" comment="Race id or mask"/>
+														<param name="OfferRace" value="{lookup.race@yaki}" comment="Name of the offer race"/>
+														<param name="Complete Briefing" value="1" comment="Run the briefing completion library"/>
+														<param name="Difficulty" value="{lookup.level@average}" comment="The value address for the difficulty"/>
+														<param name="RewardCr" value="Beryll_Incursion.Combat_RewardCr" comment="Reward - credits"/>
+														<param name="Bonus" value="Beryll_Incursion.Combat_Bonus"/>
+														<param name="Level" value="15"/>
+														<param name="Followers" value="Beryll_Incursion.Combat_Followers"/>
+														<param name="Waypoints" value="2"/>
+													</params>
+												</cue>
+												<cue name="Beryll_Incursion_Stage2_3_Combat_Ended" delay="2s">
+													<condition>
+														<check_value value="{value@Beryll_Incursion_Stage2_3_CombatMission.2 L0GI10_Progress}" min="1"/>
+													</condition>
+													<action>
+														<do_all>
+															<set_value name="Beryll_Incursion.Combat_Reward" exact="{value@Beryll_Incursion.Combat_Reward}+{value@Beryll_Incursion.Combat_Bonus}"/>
+															<remove_briefing cue="Beryll_Incursion_Stage2_3_CombatMission"/>
+															<do_choose>
+																<do_when value="{value@Beryll_Incursion_Stage2_3_CombatMission.2 L0GI10_Progress}" exact="1">
+																	<reward_player>
+																		<money exact="{value@Beryll_Incursion.Combat_Reward}"/>
+																		<notoriety>
+																			<relation race="{lookup.race@yaki}" exact="{reward.notoriety.{lookup.race@yaki}@{lookup.level@average}}"/>
+																		</notoriety>
+																	</reward_player>
+																	<remove_objective cue="Beryll_Incursion_Stage2_3_CombatMission" status="complete"/>
+																	<set_value name="Beryll_Incursion.NextTask" exact="99"/>
+																</do_when>
+																<do_otherwise>
+																	<remove_objective cue="Beryll_Incursion_Stage2_3_CombatMission" status="failed"/>
+																	<reset_cue cue="Beryll_Incursion_Stage2_3_CreateTasks"/>
+																</do_otherwise>
+															</do_choose>
+														</do_all>
+													</action>
+												</cue>
+											</cues>
+										</cue>
+									</cues>
+								</cue>
+								
+								<cue name="Beryll_Incursion_Stage2_3_SmuggleMission" delay="1s">
+									<action>
+										<do_all>
+											<find_sector name="this.sector" race="yaki" sector="Beryll_Incursion.YakiHome" min="0" max="5"/>
+											<find_station name="Beryll_Incursion.Smuggle_StartStation" race="yaki" dockingallowed="1">
+												<sector sector="this.sector"/>
+												<jumps exact="0"/>
+											</find_station>
+											<do_if value="{object.exists@Beryll_Incursion.Smuggle_StartStation}" exact="0">
+												<find_station name="Beryll_Incursion.Smuggle_StartStation" race="yaki" dockingallowed="1">
+													<sector sector="this.sector"/>
+													<jumps min="0" max="5"/>
+												</find_station>
+											</do_if>
+											<do_if value="{object.exists@Beryll_Incursion.Smuggle_StartStation}" exact="0">
+												<find_station name="Beryll_Incursion.Smuggle_StartStation" race="yaki">
+													<sector sector="this.sector"/>
+													<jumps min="0" max="5"/>
+												</find_station>
+											</do_if>
+											<create_actor race="yaki" name="Beryll_Incursion.Smuggle_Contact" object="Beryll_Incursion.Smuggle_StartStation" location="crew" voiceflags="32"/>
+											<create_offer actor="Beryll_Incursion.Smuggle_Contact" conversation="L2OfferNormal" discipline="XXXXP" cue="Beryll_Incursion_Stage2_3_SmuggleMission"/>
+											<remove_value value="Beryll_Incursion.Smuggle_RewardCr"/>
+											<remove_value value="Beryll_Incursion.Smuggle_Bonus"/>
+											<set_value name="Beryll_Incursion_Stage2_3_SmuggleMission.3 L0GI08_Progress" exact="0"/>
+											<find_sector name="Beryll_Incursion.Smuggle_Sector" race="paranid" sector="Beryll_Incursion.YakiHome" min="4" max="6"/>
+										</do_all>
+									</action>
+									<cues>
+										<cue name="Beryll_Incursion_Stage2_3_Smuggle_Briefing" delay="1s">
+											<condition>
+												<conversation_completed answer="briefing" conversation="L2OfferNormal" actor="Beryll_Incursion.Smuggle_Contact"/>
+											</condition>
+											<cues>
+												<cue ref="L0GI08 B">
+													<params>
+														<param name="Cue" value="Beryll_Incursion_Stage2_3_SmuggleMission" comment="The cue where values will be localized"/>
+														<param name="ID" value="3"/>
+														<param name="Step" value="1"/>
+														<param name="SectorRange" value="1"/>
+														<param name="StationCount" value="4"/>
+														<param name="Lv1Guide" value="Beryll_Incursion.Smuggle_Contact"/>
+														<param name="StartSector" value="Beryll_Incursion.Smuggle_Sector"/>
+														<param name="Difficulty" value="{lookup.level@average}"/>
+														<param name="RewardCr" value="Beryll_Incursion.Smuggle_RewardCr"/>
+													</params>
+												</cue>
+											</cues>
+										</cue>
+										<cue name="Beryll_Incursion_Stage2_3_Smuggle_Accept" delay="1s">
+											<condition>
+												<conversation_completed answer="accept" conversation="L2OfferNormal" actor="Beryll_Incursion.Smuggle_Contact"/>
+											</condition>
+											<action>
+												<do_all>
+													<set_value name="Beryll_Incursion.NextTask" exact="1"/>
+												</do_all>
+											</action>
+											<cues>
+												<cue ref="L0GI08">
+													<params>
+														<param name="Cue" value="Beryll_Incursion_Stage2_3_SmuggleMission" comment="The cue where values will be localized"/>
+														<param name="ID" value="3"/>
+														<param name="Step" value="1"/>
+														<param name="SectorRange" value="1"/>
+														<param name="StationCount" value="4"/>
+														<param name="Lv1Guide" value="Beryll_Incursion.Smuggle_Contact"/>
+														<param name="StartSector" value="Beryll_Incursion.Smuggle_Sector"/>
+														<param name="Difficulty" value="{lookup.level@average}"/>
+														<param name="RewardCr" value="Beryll_Incursion.Smuggle_RewardCr"/>
+													</params>
+												</cue>
+												<cue name="Beryll_Incursion_Stage2_3_Smuggle_Ended" delay="2s">
+													<condition>
+														<check_value value="{value@Beryll_Incursion_Stage2_3_SmuggleMission.3 L0GI08_Progress}" min="1"/>
+													</condition>
+													<action>
+														<do_all>
+															<set_value name="Beryll_Incursion.Smuggle_Reward" exact="{value@Beryll_Incursion.Smuggle_Reward}+{value@Beryll_Incursion.Smuggle_Bonus}"/>
+															<remove_briefing cue="Beryll_Incursion_Stage2_3_SmuggleMission"/>
+															<do_choose>
+																<do_when value="{value@Beryll_Incursion_Stage2_3_SmuggleMission.3 L0GI08_Progress}" exact="1">
+																	<reward_player>
+																		<money exact="{value@Beryll_Incursion.Smuggle_Reward}"/>
+																		<notoriety>
+																			<relation race="{lookup.race@yaki}" exact="{reward.notoriety.{lookup.race@yaki}@{lookup.level@average}}"/>
+																		</notoriety>
+																	</reward_player>
+																	<remove_objective cue="Beryll_Incursion_Stage2_3_SmuggleMission" status="complete"/>
+																	<set_value name="Beryll_Incursion.NextTask" exact="99"/>
+																</do_when>
+																<do_otherwise>
+																	<remove_objective cue="Beryll_Incursion_Stage2_3_SmuggleMission" status="failed"/>
 																	<reset_cue cue="Beryll_Incursion_Stage2_3_CreateTasks"/>
 																</do_otherwise>
 															</do_choose>

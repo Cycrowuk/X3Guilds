@@ -158,7 +158,7 @@
 					</do_choose>
 					<set_value name="{param@Cue}.{param@ID} L0GI02_MissionGiver" exact="{param@MissionGiver}"/>
 					<set_value name="{param@Cue}.{param@ID} L0GI02_OfferRace" exact="{actor.race@{param@MissionGiver}}"/>
-					<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirates}"/>
+					<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirate}"/>
 					<do_choose>
 						<do_when value="{param.exists@IsPlot}">
 							<set_value name="{param@Cue}.{param@ID} L0GI02_IsPlot" exact="{param@IsPlot}"/>
@@ -195,7 +195,7 @@
 									</do_when>
 									<do_otherwise>
 										<do_any>
-											<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirates}" chance="40"/>
+											<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirate}" chance="40"/>
 											<set_value name="L0GI02.EnemyRace" exact="{lookup.race@argon}" chance="10"/>
 											<set_value name="L0GI02.EnemyRace" exact="{lookup.race@boron}" chance="10"/>
 											<set_value name="L0GI02.EnemyRace" exact="{lookup.race@teladi}" chance="10"/>
@@ -210,16 +210,16 @@
 					</do_choose>
 
 					<do_if value="{value@L0GI02.CaptureRace}" list="{lookup.race@xenon}|{lookup.race@khaak}|{lookup.race@player}|{lookup.race@enemy}|{lookup.race@neutral}|{lookup.race@friend}|{lookup.race@abandoned}|{lookup.race@other1}|{lookup.race@other2}|{lookup.race@corporation1}|{lookup.race@corporation2}">
-						<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirates}"/>
+						<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirate}"/>
 					</do_if>
 					<do_if value="{value@L0GI02.CaptureRace}" exact="0">
-						<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirates}"/>
+						<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirate}"/>
 					</do_if>
 					<do_if value="{value@L0GI02.EnemyRace}" list="{lookup.race@xenon}|{lookup.race@khaak}|{lookup.race@player}|{lookup.race@enemy}|{lookup.race@neutral}|{lookup.race@friend}|{lookup.race@abandoned}|{lookup.race@other1}|{lookup.race@other2}|{lookup.race@corporation1}|{lookup.race@corporation2}">
-						<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirates}"/>
+						<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirate}"/>
 					</do_if>
 					<do_if value="{value@L0GI02.EnemyRace}" exact="0">
-						<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirates}"/>
+						<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirate}"/>
 					</do_if>
 
 					<set_value name="{param@Cue}.{param@ID} L0GI02_Difficulty" exact="{param@Difficulty}"/>
@@ -296,10 +296,10 @@
 					<action>
 						<do_all>
 							<do_if value="{value@L0GI02.CaptureRace}" exact="0">
-								<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirates}"/>
+								<set_value name="L0GI02.CaptureRace" exact="{lookup.race@pirate}"/>
 							</do_if>
 							<do_if value="{value@L0GI02.EnemyRace}" exact="0">
-								<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirates}"/>
+								<set_value name="L0GI02.EnemyRace" exact="{lookup.race@pirate}"/>
 							</do_if>
 							<do_if value="{value@{param@Cue}.{param@ID} L0GI02_ShipType}" exact="0">
 								<set_value name="{param@Cue}.{param@ID} L0GI02_ShipType" exact="{value@L0GI02.ShipTypeSRST}"/>

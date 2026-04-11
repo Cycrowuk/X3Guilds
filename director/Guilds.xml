@@ -253,7 +253,7 @@
 							</start_script>
 						</do_when>
 						<do_when value="{player.gamestart}" exact="10502">
-						  <set_player_race race="{lookup.race@pirates}"/>
+						  <set_player_race race="{lookup.race@pirate}"/>
 						  <reward_player>
 							  <money exact="100000" notransaction="1"/>
 							  <notoriety>
