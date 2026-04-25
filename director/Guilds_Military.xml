@@ -1190,6 +1190,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Argon Military.MissionStart" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1197,9 +1198,14 @@
 												<sector sector="{player.sector}"/>
 												<jumps exact="0"/>
 											</find_station>
-											<do_if value="{object.exists@Argon Military.MissionOutpost}" exact="0">
-												<reset_cue cue="Argon Military_Missions"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Argon Military.MissionOutpost}" exact="0">
+													<reset_cue cue="Argon Military_Missions"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Argon Military.MissionStart" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Argon Military_Missions"/>
@@ -1210,10 +1216,16 @@
 							<cues>
 								<cue name="Argon Military_StartMission">
 									<condition>
-										<check_value value="{object.exists@Argon Military.MissionOutpost}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Argon Military.MissionStart}" exact="1"/>
+											<check_value value="{object.exists@Argon Military.MissionOutpost}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
-										<create_actor name="Argon Military.Leader" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost"/>
+										<do_all>
+											<set_value name="Argon Military.MissionStart" exact="0"/>
+											<create_actor name="Argon Military.Leader" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost"/>
+										</do_all>
 									</action>
 									<cues>
 										<cue ref="Military_Radiant_Mission">
@@ -1248,6 +1260,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Argon Military.MissionStart_2" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1255,9 +1268,14 @@
 												<sector sector="{player.sector}"/>
 												<jumps exact="0"/>
 											</find_station>
-											<do_if value="{object.exists@Argon Military.MissionOutpost_2}" exact="0">
-												<reset_cue cue="Argon Military_Missions_2"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Argon Military.MissionOutpost_2}" exact="0">
+													<reset_cue cue="Argon Military_Missions_2"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Argon Military.MissionStart_2" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Argon Military_Missions_2"/>
@@ -1268,10 +1286,16 @@
 							<cues>
 								<cue name="Argon Military_StartMission_2">
 									<condition>
-										<check_value value="{object.exists@Argon Military.MissionOutpost_2}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Argon Military.MissionStart_2}" exact="1"/>
+											<check_value value="{object.exists@Argon Military.MissionOutpost_2}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
-										<create_actor name="Argon Military.Leader_2" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost_2"/>
+										<do_all>
+											<set_value name="Argon Military.MissionStart_2" exact="0"/>
+											<create_actor name="Argon Military.Leader_2" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost_2"/>
+										</do_all>
 									</action>
 									<cues>
 										<cue ref="Military_Radiant_Mission">
@@ -1296,7 +1320,7 @@
 								</cue>
 							</cues>
 						</cue>
-						
+
 						<cue name="Argon Military_Missions_3" delay="1s">
 							<condition>
 								<check_all>
@@ -1306,6 +1330,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Argon Military.MissionStart_3" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1313,9 +1338,14 @@
 												<sector sector="{player.sector}"/>
 												<jumps exact="0"/>
 											</find_station>
-											<do_if value="{object.exists@Argon Military.MissionOutpost_3}" exact="0">
-												<reset_cue cue="Argon Military_Missions_3"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Argon Military.MissionOutpost_3}" exact="0">
+													<reset_cue cue="Argon Military_Missions_3"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Argon Military.MissionStart_3" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Argon Military_Missions_3"/>
@@ -1326,10 +1356,16 @@
 							<cues>
 								<cue name="Argon Military_StartMission_3">
 									<condition>
-										<check_value value="{object.exists@Argon Military.MissionOutpost_3}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Argon Military.MissionStart_3}" exact="1"/>
+											<check_value value="{object.exists@Argon Military.MissionOutpost_3}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
-										<create_actor name="Argon Military.Leader_3" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost_3"/>
+										<do_all>
+											<set_value name="Argon Military.MissionStart_3" exact="0"/>
+											<create_actor name="Argon Military.Leader_3" face="104" voice="120" race="argon" gender="female" object="Argon Military.MissionOutpost_3"/>
+										</do_all>
 									</action>
 									<cues>
 										<cue ref="Military_Radiant_Mission">
@@ -1525,7 +1561,7 @@
 				</cue>
 				<!-- ####################-->
 
-				<!-- ###### TERRAN ###### -->
+				<!-- ###### TERRAN ###### -->			
 				<cue name="Terran Military">
 					<action>
 						<do_all>
@@ -1598,6 +1634,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Terran Military.MissionStart" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1617,9 +1654,14 @@
 													<jumps exact="0"/>
 												</find_station>
 											</do_if>
-											<do_if value="{object.exists@Terran Military.MissionOutpost}" exact="0">
-												<reset_cue cue="Terran Military_Missions"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Terran Military.MissionOutpost}" exact="0">
+													<reset_cue cue="Terran Military_Missions"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Terran Military.MissionStart" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Terran Military_Missions"/>
@@ -1630,10 +1672,14 @@
 							<cues>
 								<cue name="Terran Military_StartMission">
 									<condition>
-										<check_value value="{object.exists@Terran Military.MissionOutpost}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Terran Military.MissionStart}" exact="1"/>
+											<check_value value="{object.exists@Terran Military.MissionOutpost}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
 										<do_all>
+											<set_value name="Terran Military.MissionStart" exact="0"/>
 											<create_actor name="Terran Military.Leader" face="1133" voice="125" race="terran" gender="male" object="Terran Military.MissionOutpost"/>
 										</do_all>
 									</action>
@@ -1670,6 +1716,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Terran Military.MissionStart_2" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1689,9 +1736,14 @@
 													<jumps exact="0"/>
 												</find_station>
 											</do_if>
-											<do_if value="{object.exists@Terran Military.MissionOutpost_2}" exact="0">
-												<reset_cue cue="Terran Military_Missions_2"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Terran Military.MissionOutpost_2}" exact="0">
+													<reset_cue cue="Terran Military_Missions_2"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Terran Military.MissionStart_2" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Terran Military_Missions_2"/>
@@ -1702,11 +1754,15 @@
 							<cues>
 								<cue name="Terran Military_StartMission_2">
 									<condition>
-										<check_value value="{object.exists@Terran Military.MissionOutpost_2}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Terran Military.MissionStart_2}" exact="1"/>
+											<check_value value="{object.exists@Terran Military.MissionOutpost_2}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
 										<do_all>
-											<create_actor name="Terran Military.Leader_2" face="1133" voice="125" race="terran" gender="male" object="Terran Military.MissionOutpost_2"/>
+											<set_value name="Terran Military.MissionStart_2" exact="0"/>
+											<create_actor name="Terran Military.Leader" face="1133" voice="125" race="terran" gender="male" object="Terran Military.MissionOutpost_2"/>
 										</do_all>
 									</action>
 									<cues>
@@ -1742,6 +1798,7 @@
 							</condition>
 							<action>
 								<do_all>
+									<set_value name="Terran Military.MissionStart_3" exact="0"/>
 									<set_value name="this.Random" min="0" max="100"/>
 									<do_choose>
 										<do_when value="{value@this.Random}" max="20">
@@ -1761,9 +1818,14 @@
 													<jumps exact="0"/>
 												</find_station>
 											</do_if>
-											<do_if value="{object.exists@Terran Military.MissionOutpost_3}" exact="0">
-												<reset_cue cue="Terran Military_Missions_3"/>
-											</do_if>
+											<do_choose>
+												<do_when value="{object.exists@Terran Military.MissionOutpost_3}" exact="0">
+													<reset_cue cue="Terran Military_Missions_3"/>
+												</do_when>
+												<do_otherwise>
+													<set_value name="Terran Military.MissionStart_3" exact="1"/>
+												</do_otherwise>
+											</do_choose>
 										</do_when>
 										<do_otherwise>
 											<reset_cue cue="Terran Military_Missions_3"/>
@@ -1774,11 +1836,15 @@
 							<cues>
 								<cue name="Terran Military_StartMission_3">
 									<condition>
-										<check_value value="{object.exists@Terran Military.MissionOutpost_3}" exact="1"/>
+										<check_all>
+											<check_value value="{value@Terran Military.MissionStart_3}" exact="1"/>
+											<check_value value="{object.exists@Terran Military.MissionOutpost_3}" exact="1"/>
+										</check_all>
 									</condition>
 									<action>
 										<do_all>
-											<create_actor name="Terran Military.Leader_3" face="1133" voice="125" race="terran" gender="male" object="Terran Military.MissionOutpost_3"/>
+											<set_value name="Terran Military.MissionStart_3" exact="0"/>
+											<create_actor name="Terran Military.Leader" face="1133" voice="125" race="terran" gender="male" object="Terran Military.MissionOutpost_3"/>
 										</do_all>
 									</action>
 									<cues>
