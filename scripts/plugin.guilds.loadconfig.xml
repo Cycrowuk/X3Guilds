@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl" ?>
 <script>
 <name>plugin.guilds.loadconfig</name>
-<version>5</version>
+<version>6</version>
 <engineversion>73</engineversion>
 <description>Guilds: Setup script</description>
 <arguments>
@@ -392,17 +392,22 @@
   endsub
   
   
-  
   sub.ApplySettings:
+  $sector.colours.old = $config['sector.colours']
+  
   $key = get next key: table=$settings key=null
   while $key
     if $dynamic[$key]
-      if not $config[$key]
-        $config[$key] = $settings[$key]
+      $value = $config[$key]
+      if not $value
+        skip if $value == 0
+          $config[$key] = $settings[$key]
       end
     else if $static[$key]
-      if not $config[$key]
-        $config[$key] = $settings[$key]
+      $value = $config[$key]
+      if not $value
+        skip if $value == 0
+          $config[$key] = $settings[$key]
       end
     else
       $config[$key] = $settings[$key]
@@ -410,7 +415,10 @@
     
     $key = get next key: table=$settings key=$key
   end
-@ START [THIS] -> call script plugin.guilds.sectors :  Object=null  Event='reinit'  Param=null  Param2=null
+  
+  $sector.colours.new = $config['sector.colours']
+  do if $sector.colours.old != 0 OR $sector.colours.old != $sector.colours.new
+@   START [THIS] -> call script plugin.guilds.sectors :  Object=null  Event='reinit'  Param=null  Param2=null
   endsub
   return null
 ]]>
@@ -729,7 +737,7 @@
 <line indent=""><var>$colour&#160;=&#160;</var><text>get&#160;colour&#160;code:&#160;red=</text><var>255</var><text>&#160;green=</text><var>255</var><text>&#160;blue=</text><var>204</var><text>&#160;transparency=</text><var>0</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.5.border'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$colour&#160;=&#160;</var><text>get&#160;colour&#160;code:&#160;red=</text><var>100</var><text>&#160;green=</text><var>50</var><text>&#160;blue=</text><var>50</var><text>&#160;transparency=</text><var>0</var></line>
-<line indent=""><comment>*$colour&#160;=&#160;<text>get&#160;colour&#160;code:&#160;red=</text>255<text>&#160;green=</text>150<text>&#160;blue=</text>0<text>&#160;transparency=</text>0</comment></line>
+<line indent=""><comment><text>*&#160;</text><var>$colour&#160;=&#160;get&#160;colour&#160;code:&#160;red=255&#160;green=150&#160;blue=0&#160;transparency=0</var></comment></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.6.captial'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.6.core'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.6.border'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
@@ -755,7 +763,7 @@
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.14.captial'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.14.core'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.14.border'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
-<line indent=""><comment>*$colour&#160;=&#160;<text>get&#160;colour&#160;code:&#160;red=</text>128<text>&#160;green=</text>0<text>&#160;blue=</text>0<text>&#160;transparency=</text>0</comment></line>
+<line indent=""><comment><text>*&#160;</text><var>$colour&#160;=&#160;get&#160;colour&#160;code:&#160;red=128&#160;green=0&#160;blue=0&#160;transparency=0</var></comment></line>
 <line indent=""><var>$colour&#160;=&#160;</var><text>get&#160;colour&#160;code:&#160;red=</text><var>250</var><text>&#160;green=</text><var>250</var><text>&#160;blue=</text><var>250</var><text>&#160;transparency=</text><var>0</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.12.captial'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
 <line indent=""><var>$settings</var><text>[</text><var>'sec_col.12.core'</var><text>]&#160;=&#160;</text><var>$colour</var></line>
@@ -798,17 +806,22 @@
 <line indent=""><text>endsub</text></line>
 <line indent=""></line>
 <line indent=""></line>
-<line indent=""></line>
 <line indent=""><var>sub.ApplySettings</var><text>:</text></line>
+<line indent=""><var>$sector.colours.old&#160;=&#160;</var><var>$config</var><text>[</text><var>'sector.colours'</var><text>]</text></line>
+<line indent=""></line>
 <line indent=""><var>$key&#160;=&#160;</var><text>get&#160;next&#160;key:&#160;table=</text><var>$settings</var><text>&#160;key=</text><var>null</var></line>
 <line indent=""><var>while&#160;</var><var>$key</var></line>
 <line indent="&#160;"><var>if&#160;</var><var>$dynamic</var><text>[</text><var>$key</var><text>]</text></line>
-<line indent="&#160;&#160;"><var>if&#160;not&#160;</var><var>$config</var><text>[</text><var>$key</var><text>]</text></line>
-<line indent="&#160;&#160;&#160;"><var>$config</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>$settings</var><text>[</text><var>$key</var><text>]</text></line>
+<line indent="&#160;&#160;"><var>$value&#160;=&#160;</var><var>$config</var><text>[</text><var>$key</var><text>]</text></line>
+<line indent="&#160;&#160;"><var>if&#160;not&#160;</var><var>$value</var></line>
+<line indent="&#160;&#160;&#160;"><var>skip&#160;if&#160;</var><var>$value</var><text>&#160;</text><var>==</var><text>&#160;</text><var>0</var></line>
+<line indent="&#160;&#160;&#160;&#160;"><var>$config</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>$settings</var><text>[</text><var>$key</var><text>]</text></line>
 <line indent="&#160;&#160;"><text>end</text></line>
 <line indent="&#160;"><var>else&#160;if&#160;</var><var>$static</var><text>[</text><var>$key</var><text>]</text></line>
-<line indent="&#160;&#160;"><var>if&#160;not&#160;</var><var>$config</var><text>[</text><var>$key</var><text>]</text></line>
-<line indent="&#160;&#160;&#160;"><var>$config</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>$settings</var><text>[</text><var>$key</var><text>]</text></line>
+<line indent="&#160;&#160;"><var>$value&#160;=&#160;</var><var>$config</var><text>[</text><var>$key</var><text>]</text></line>
+<line indent="&#160;&#160;"><var>if&#160;not&#160;</var><var>$value</var></line>
+<line indent="&#160;&#160;&#160;"><var>skip&#160;if&#160;</var><var>$value</var><text>&#160;</text><var>==</var><text>&#160;</text><var>0</var></line>
+<line indent="&#160;&#160;&#160;&#160;"><var>$config</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>$settings</var><text>[</text><var>$key</var><text>]</text></line>
 <line indent="&#160;&#160;"><text>end</text></line>
 <line indent="&#160;"><text>else</text></line>
 <line indent="&#160;&#160;"><var>$config</var><text>[</text><var>$key</var><text>]&#160;=&#160;</text><var>$settings</var><text>[</text><var>$key</var><text>]</text></line>
@@ -816,7 +829,10 @@
 <line indent="&#160;"></line>
 <line indent="&#160;"><var>$key&#160;=&#160;</var><text>get&#160;next&#160;key:&#160;table=</text><var>$settings</var><text>&#160;key=</text><var>$key</var></line>
 <line indent=""><text>end</text></line>
-<line interruptable="@" indent=""><var>START&#160;</var><var>[THIS]&#160;-&gt;</var><text>&#160;call&#160;script&#160;</text><call>plugin.guilds.sectors</call><text>&#160;:&#160;</text><text>&#160;Object=</text><var>null</var><text>&#160;</text><text>&#160;Event=</text><var>'reinit'</var><text>&#160;</text><text>&#160;Param=</text><var>null</var><text>&#160;</text><text>&#160;Param2=</text><var>null</var></line>
+<line indent=""></line>
+<line indent=""><var>$sector.colours.new&#160;=&#160;</var><var>$config</var><text>[</text><var>'sector.colours'</var><text>]</text></line>
+<line indent=""><var>do&#160;if&#160;</var><var>$sector.colours.old</var><text>&#160;</text><var>!=</var><text>&#160;</text><var>0</var><text>&#160;</text><var>OR</var><text>&#160;</text><var>$sector.colours.old</var><text>&#160;</text><var>!=</var><text>&#160;</text><var>$sector.colours.new</var></line>
+<line interruptable="@" indent="&#160;"><var>START&#160;</var><var>[THIS]&#160;-&gt;</var><text>&#160;call&#160;script&#160;</text><call>plugin.guilds.sectors</call><text>&#160;:&#160;</text><text>&#160;Object=</text><var>null</var><text>&#160;</text><text>&#160;Event=</text><var>'reinit'</var><text>&#160;</text><text>&#160;Param=</text><var>null</var><text>&#160;</text><text>&#160;Param2=</text><var>null</var></line>
 <line indent=""><text>endsub</text></line>
 <line indent=""><text>return&#160;</text><var>null</var></line>
 </sourcetext>
@@ -826,9 +842,9 @@
   <sval type="string" val="plugin.guilds.loadconfig"/>
   <sval type="int" val="73"/>
   <sval type="string" val="Guilds: Setup script"/>
-  <sval type="int" val="5"/>
+  <sval type="int" val="6"/>
   <sval type="int" val="0"/>
-  <sval type="array" size="36">
+  <sval type="array" size="39">
     <sval type="string" val="a.force"/>
     <sval type="string" val="guild.config"/>
     <sval type="string" val="dynamic"/>
@@ -864,9 +880,12 @@
     <sval type="string" val="colour"/>
     <sval type="string" val="i"/>
     <sval type="string" val="var"/>
+    <sval type="string" val="sector.colours.old"/>
     <sval type="string" val="key"/>
+    <sval type="string" val="value"/>
+    <sval type="string" val="sector.colours.new"/>
   </sval>
-  <sval type="array" size="358">
+  <sval type="array" size="365">
     <sval type="array" size="4">
       <sval type="int" val="158"/>
       <sval type="int" val="5"/>
@@ -3810,8 +3829,16 @@
       <sval type="string" val="sub.ApplySettings"/>
     </sval>
     <sval type="array" size="6">
-      <sval type="int" val="1739"/>
+      <sval type="int" val="129"/>
       <sval type="int" val="35"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="4"/>
+      <sval type="int" val="5"/>
+      <sval type="string" val="sector.colours"/>
+    </sval>
+    <sval type="array" size="6">
+      <sval type="int" val="1739"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="6"/>
       <sval type="int" val="0"/>
@@ -3819,97 +3846,180 @@
     </sval>
     <sval type="array" size="7">
       <sval type="int" val="104"/>
-      <sval type="int" val="-1610521847"/>
+      <sval type="int" val="-1610520567"/>
       <sval type="int" val="1"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="1"/>
       <sval type="int" val="-1"/>
     </sval>
     <sval type="array" size="6">
       <sval type="int" val="129"/>
-      <sval type="int" val="-1610523645"/>
+      <sval type="int" val="-1610522877"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="2"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="6">
       <sval type="int" val="129"/>
-      <sval type="int" val="-536782076"/>
+      <sval type="int" val="37"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="4"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
+    </sval>
+    <sval type="array" size="7">
+      <sval type="int" val="104"/>
+      <sval type="int" val="-536781308"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="37"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="-1"/>
+    </sval>
+    <sval type="array" size="13">
+      <sval type="int" val="104"/>
+      <sval type="int" val="-536781305"/>
+      <sval type="int" val="3"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="37"/>
+      <sval type="int" val="4"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="15"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="3"/>
+      <sval type="int" val="-1"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="-2"/>
     </sval>
     <sval type="array" size="9">
       <sval type="int" val="1092"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="4"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="6"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="112"/>
-      <sval type="int" val="353"/>
+      <sval type="int" val="358"/>
     </sval>
     <sval type="array" size="6">
       <sval type="int" val="129"/>
-      <sval type="int" val="-1610522619"/>
+      <sval type="int" val="-1610521339"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="3"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="6">
       <sval type="int" val="129"/>
-      <sval type="int" val="-536781052"/>
+      <sval type="int" val="37"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="4"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
+    </sval>
+    <sval type="array" size="7">
+      <sval type="int" val="104"/>
+      <sval type="int" val="-536779772"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="37"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="-1"/>
+    </sval>
+    <sval type="array" size="13">
+      <sval type="int" val="104"/>
+      <sval type="int" val="-536779769"/>
+      <sval type="int" val="3"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="37"/>
+      <sval type="int" val="4"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="15"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="3"/>
+      <sval type="int" val="-1"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="-2"/>
     </sval>
     <sval type="array" size="9">
       <sval type="int" val="1092"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="4"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="6"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="112"/>
-      <sval type="int" val="353"/>
+      <sval type="int" val="358"/>
     </sval>
     <sval type="array" size="9">
       <sval type="int" val="1092"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="4"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="6"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="6">
       <sval type="int" val="1739"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
       <sval type="int" val="131074"/>
       <sval type="int" val="6"/>
       <sval type="int" val="131074"/>
-      <sval type="int" val="35"/>
+      <sval type="int" val="36"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="112"/>
-      <sval type="int" val="343"/>
+      <sval type="int" val="344"/>
+    </sval>
+    <sval type="array" size="6">
+      <sval type="int" val="129"/>
+      <sval type="int" val="38"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="4"/>
+      <sval type="int" val="5"/>
+      <sval type="string" val="sector.colours"/>
+    </sval>
+    <sval type="array" size="25">
+      <sval type="int" val="104"/>
+      <sval type="int" val="-1610519800"/>
+      <sval type="int" val="7"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="35"/>
+      <sval type="int" val="4"/>
+      <sval type="int" val="0"/>
+      <sval type="int" val="15"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="35"/>
+      <sval type="int" val="131074"/>
+      <sval type="int" val="38"/>
+      <sval type="int" val="15"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="15"/>
+      <sval type="int" val="10"/>
+      <sval type="int" val="7"/>
+      <sval type="int" val="-1"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="-2"/>
+      <sval type="int" val="10"/>
+      <sval type="int" val="-4"/>
+      <sval type="int" val="1"/>
+      <sval type="int" val="-5"/>
     </sval>
     <sval type="array" size="14">
       <sval type="int" val="102"/>
@@ -3942,7 +4052,7 @@
       <sval type="string" val="Force"/>
     </sval>
   </sval>
-  <sval type="array" size="61">
+  <sval type="array" size="62">
     <sval type="array" size="3">
       <sval type="int" val="0"/>
       <sval type="int" val="1"/>
@@ -4134,33 +4244,15 @@
       <sval type="int" val="218"/>
       <sval type="int" val="2"/>
     </sval>
-    <sval type="array" size="12">
+    <sval type="array" size="3">
       <sval type="int" val="278"/>
-      <sval type="int" val="3"/>
-      <sval type="int" val="1607"/>
-      <sval type="string" val="colour"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="255"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="150"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="0"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="0"/>
+      <sval type="int" val="1"/>
+      <sval type="string" val="$colour = get colour code: red=255 green=150 blue=0 transparency=0"/>
     </sval>
-    <sval type="array" size="12">
+    <sval type="array" size="3">
       <sval type="int" val="303"/>
-      <sval type="int" val="3"/>
-      <sval type="int" val="1607"/>
-      <sval type="string" val="colour"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="128"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="0"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="0"/>
-      <sval type="int" val="4"/>
-      <sval type="int" val="0"/>
+      <sval type="int" val="1"/>
+      <sval type="string" val="$colour = get colour code: red=128 green=0 blue=0 transparency=0"/>
     </sval>
     <sval type="array" size="2">
       <sval type="int" val="320"/>
@@ -4183,37 +4275,41 @@
       <sval type="int" val="2"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="341"/>
+      <sval type="int" val="343"/>
       <sval type="int" val="2"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="347"/>
+      <sval type="int" val="350"/>
       <sval type="int" val="4"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="351"/>
+      <sval type="int" val="356"/>
       <sval type="int" val="4"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="352"/>
+      <sval type="int" val="357"/>
       <sval type="int" val="5"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="353"/>
+      <sval type="int" val="358"/>
       <sval type="int" val="4"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="353"/>
+      <sval type="int" val="358"/>
       <sval type="int" val="2"/>
     </sval>
     <sval type="array" size="2">
-      <sval type="int" val="355"/>
+      <sval type="int" val="360"/>
       <sval type="int" val="4"/>
+    </sval>
+    <sval type="array" size="2">
+      <sval type="int" val="360"/>
+      <sval type="int" val="2"/>
     </sval>
   </sval>
   <sval type="int" val="0"/>
 </sval>
 
 </codearray>
-<nosignature>0534</nosignature>
+<nosignature>8299</nosignature>
 </script>
