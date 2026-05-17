@@ -383,7 +383,6 @@
 				<o t="16" s="SS_WARE_MINE_2"/>
 				<o t="16" s="SS_WARE_SOLDIER_1"/>
 				<o t="16" s="SS_WARE_SOLDIER_2"/>
-				<o t="16" s="SS_WARE_SW_BUILD_MK1"/>
 				<o t="16" s="SS_WARE_MINERAL_ENH"/>
 				<o t="16" s="SS_WARE_PACK_GENERAL"/>
 			</o>
@@ -1050,6 +1049,9 @@
 				<o t="16" s="SS_WARE_DOCKING_EXT"/>
 				<o t="16" s="SS_WARE_MINERAL_ENH"/>
 				<o t="16" s="SS_WARE_PACK_GENERAL"/>
+				<o t="16" s="SS_WARE_TECH251"/>
+				<o t="16" s="SS_WARE_TECH213"/>
+				<o t="16" s="SS_WARE_TECH246"/>
 			</o>
 		</o>
 		<o t="5" s="SS_DOCK_CORP_3" x="7500000" y="0" z="15000000" r="1" a="0" b="0" g="0">
@@ -1067,6 +1069,9 @@
 				<o t="16" s="SS_WARE_SW_SUPPLY_1"/>
 				<o t="16" s="SS_WARE_BIOSCANNER"/>
 				<o t="16" s="SS_WARE_PACK_GENERAL"/>
+				<o t="16" s="SS_WARE_TECH251"/>
+				<o t="16" s="SS_WARE_TECH213"/>
+				<o t="16" s="SS_WARE_TECH246"/>
 			</o>
 		</o>
 		<o t="5" s="SS_DOCK_CORP_4" x="15000000" y="0" z="15000000" r="1" a="0" b="0" g="0">
@@ -1117,6 +1122,9 @@
 				<o t="16" s="SS_WARE_SW_TRADEEXT_2"/>
 				<o t="16" s="SS_WARE_PACK_GENERAL"/>
 				<o t="16" s="SS_WARE_PACK_MINING"/>
+				<o t="16" s="SS_WARE_TECH251"/>
+				<o t="16" s="SS_WARE_TECH213"/>
+				<o t="16" s="SS_WARE_TECH246"/>
 			</o>
 		</o>
 		<o t="5" s="SS_DOCK_CORP_6" x="30000000" y="0" z="15000000" r="1" a="0" b="0" g="0">
@@ -1238,6 +1246,9 @@
 				<o t="16" s="SS_WARE_BOARDING_TELE"/>
 				<o t="16" s="SS_WARE_SW_TRADEEXT_3"/>
 				<o t="16" s="SS_WARE_PACK_GENERAL"/>
+				<o t="16" s="SS_WARE_TECH251"/>
+				<o t="16" s="SS_WARE_TECH213"/>
+				<o t="16" s="SS_WARE_TECH246"/>
 			</o>
 		</o>
 		<o t="5" s="SS_DOCK_TR_RESEARCH" x="52500000" y="0" z="15000000" r="1" a="0" b="0" g="0">
@@ -1466,7 +1477,6 @@
 				<o t="16" s="SS_WARE_MINE_2"/>
 				<o t="16" s="SS_WARE_SOLDIER_1"/>
 				<o t="16" s="SS_WARE_SOLDIER_2"/>
-				<o t="16" s="SS_WARE_SW_BUILD_MK1"/>
 			</o>
 		</o>
 		<o t="5" s="SS_DOCK_TR_EXCHANGE" x="-30000000" y="0" z="22500000" r="1" a="0" b="0" g="0">
